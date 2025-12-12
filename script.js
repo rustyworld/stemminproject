@@ -1,23 +1,28 @@
-gsap.registerPlugin(ScrollTrigger);
 
 
-if (document.querySelector('.sr71')) {
-    gsap.to(".sr71", {
+//less comments after this section because it's pretty much all the same process. 
+
+gsap.registerPlugin(ScrollTrigger); //Im registering the plugin for scrolltrigger so I can use scrolltrigger for my animations
+
+// Check if an element with the class 'sr71' exists in the document (spoiler alert: it does lol).
+//Note that the img isnt actually sr71 because i changed the img to another plane
+if (document.querySelector('.sr71')) { 
+    gsap.to(".sr71", { 
         scrollTrigger: {
-            trigger: ".sr71",
-            start: "top 10%",
-            end: "center 10%",
-            scrub: 1,
-            markers: false
+            trigger: ".sr71", //I am specifying what the element is that triggers the animation  
+            start: "top 10%",  // Animation starts when the top of '.sr71' reaches 10% from the top of the viewport
+            end: "center 10%", // Animation ends when the center of '.sr71' reaches 10% from the top of the viewport
+            scrub: 1, //smoother animation
+            markers: false // Markers for fine tuning, it is false because I finished using it........
         },
-        x: -2500,
-        rotation: 0,
-        duration: 10,
-        onUpdate: function() {
+        x: -2500, //how much x moves 
+        rotation: 0, //how much rotation is
+        duration: 10, //duration of animation 
+        onUpdate: function() { //this code will make the opacity of .title to zero as you scroll down. 
             const titleEl = document.querySelector('.title');
             if (titleEl) {
                 const progress = this.progress();
-                const opacity = 1 - progress;
+                const opacity = 1 - progress; 
                 titleEl.style.opacity = opacity;
 
             }
@@ -27,26 +32,25 @@ if (document.querySelector('.sr71')) {
 
 
 
-if (document.querySelector('#section1header')) {
-    gsap.fromTo("#section1header",
-        { x: -500, opacity: 0 },
+if (document.querySelector('#section1header')) { 
+    gsap.fromTo("#section1header", //This is a gsap.fromto, which is different from gsap.to.
+        { x: -500, opacity: 0 }, //It defines both the starting and ending values for the animation. 
         {
             scrollTrigger: {
-                trigger: ".section1",
-                start: "top 50%",
-                end: "top 20%",
-                scrub: 1,
+                trigger: ".section1", // selector or element
+                start: "top 50%",  // [trigger] [scroller] positions
+                end: "top 20%", // [trigger] [scroller] positions
+                scrub: 1, // time (in seconds) to catch up. Can be set to true for the quickest option 
                 markers: false,
             },
             x: 0,
-            opacity: 1,
+            opacity: 1, //makes opacity to 1
             duration: 1
         }
     );
 }
 
-
-if (document.querySelector('.section1 #section1hook')) {
+if (document.querySelector('.section1 #section1hook')) { 
     gsap.fromTo(".section1 #section1hook",
         { x: -1000, opacity: 0 },
         {
@@ -110,12 +114,12 @@ if (document.querySelector('.dynamicsky img')) {
             markers: false,
             pin:true,
         },
-        x:-2000,
+        x:-2000, //The moving sky really is just a really large image moving to the left
         
     });
 }
 
-if (document.querySelector('.b2 img')) {
+if (document.querySelector('.b2 img')) { //While a plane moves forward to give off the illusion of it flying through the sky 
     gsap.to(".b2 img", {
         scrollTrigger: {
             trigger:".b2",
