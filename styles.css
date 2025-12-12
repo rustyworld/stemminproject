@@ -67,8 +67,8 @@ header {
 /* custom font */
 @font-face {
     font-family: 'HumaneBold';
-    src: url("Humane-SemiBold.woff2") format("woff2"),
-         url("Humane-SemiBold.ttf") format("truetype");
+    src: url("./Humane-SemiBold.woff2") format("woff2"),
+         url("./Humane-SemiBold.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
